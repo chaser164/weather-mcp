@@ -1,5 +1,6 @@
 from typing import Any
 import httpx
+import os
 from mcp.server.fastmcp import FastMCP
 
 # Initialize FastMCP server
@@ -91,5 +92,9 @@ Forecast: {period['detailedForecast']}
 
 
 if __name__ == "__main__":
+    # Print dummy environment variable
+    dummy_var = os.getenv("WEATHER_DEBUG")
+    print(f"Weather server starting... Debug mode: {dummy_var}")
+    
     # Initialize and run the server
     mcp.run(transport='stdio')
